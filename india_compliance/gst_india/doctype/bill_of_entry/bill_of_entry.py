@@ -175,6 +175,8 @@ class BillofEntry(Document):
         total_taxable_value = 0
 
         for item in self.items:
+            item.assessable_value = float(item.assessable_value)
+            item.customs_duty = float(item.customs_duty)
             item.taxable_value = item.assessable_value + item.customs_duty
             total_customs_duty += item.customs_duty
             total_taxable_value += item.taxable_value
