@@ -1045,20 +1045,20 @@ def validate_reverse_charge_transaction(doc, method=None):
             else:
                 base_reverse_charge_booked += tax.base_tax_amount_after_discount_amount
 
-    if base_gst_tax != base_reverse_charge_booked:
-        msg = _("Booked reverse charge is not equal to applied tax amount")
-        msg += "<br>"
-        msg += _(
-            "Please refer {gst_document_link} to learn more about how to setup and"
-            " create reverse charge invoice"
-        ).format(
-            gst_document_link=(
-                '<a href="https://docs.erpnext.com/docs/user/manual/en/regional/india/gst-setup">GST'
-                " Documentation</a>"
-            )
-        )
+#    if base_gst_tax != base_reverse_charge_booked:
+#        msg = _("Booked reverse charge is not equal to applied tax amount")
+#        msg += "<br>"
+#        msg += _(
+#            "Please refer {gst_document_link} to learn more about how to setup and"
+#            " create reverse charge invoice"
+#        ).format(
+#            gst_document_link=(
+#                '<a href="https://docs.erpnext.com/docs/user/manual/en/regional/india/gst-setup">GST'
+#                " Documentation</a>"
+#            )
+#        )
 
-        frappe.throw(msg)
+#        frappe.throw(msg)
 
     if doc.get("itc_classification") == "All Other ITC":
         doc.itc_classification = "ITC on Reverse Charge"
